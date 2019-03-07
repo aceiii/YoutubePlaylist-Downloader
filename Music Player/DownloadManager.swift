@@ -342,24 +342,19 @@ class DownloadManager {
                 newSong.setValue(video!.title, forKey: "title")
                 newSong.setValue(video!.expirationDate, forKey: "expireDate")
                 newSong.setValue(false, forKey: "isDownloaded")
-                
+
                 /*var streamURLs = video!.streamURLs
                 let desiredURL = (streamURLs[22] != nil ? streamURLs[22] : (streamURLs[18] != nil ? streamURLs[18] : streamURLs[36]))! as NSURL
                 newSong.setValue("\(desiredURL)", forKey: "streamURL")*/
-                
-                let large = video!.largeThumbnailURL
-                let medium = video!.mediumThumbnailURL
-                let small = video!.smallThumbnailURL
-                let imgData = NSData(contentsOf: (large != nil ? large : (medium != nil ? medium : small))!)
-                
+
+                let imgData = try Data(contentsOf: video!.thumbnailURL!)
+
                 newSong.setValue(imgData, forKey: "thumbnail")
-                
-                
-                
+
                 do{
                     try self.context.save()
                 }catch _ as NSError{}
-                
+
                 NotificationCenter.default.post(name: NSNotification.Name(rawValue: "reloadPlaylistID"), object: nil)
             }
         })
