@@ -89,12 +89,12 @@ class PlaylistsTableViewController: UITableViewController {
         let request = NSFetchRequest<NSFetchRequestResult>(entityName: "Playlist")
         request.sortDescriptors = [playlistSortDescriptor]
         
-        playlists = try? context.fetch(request) as NSArray!
+        playlists = try? context.fetch(request) as NSArray
         for playlist in playlists{
             let playlistName = (playlist as AnyObject).value(forKey: "playlistName") as! String
             playlistNames += [playlistName]
         }
-        
+
         tableView.reloadData()
     }
     
