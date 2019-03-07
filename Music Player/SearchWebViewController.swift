@@ -42,13 +42,17 @@ class SearchWebViewController: UIViewController, YouTubeSearchWebViewDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        let statusBarHeight: CGFloat = UIApplication.shared.statusBarFrame.size.height
         let tabBarHeight: CGFloat = tabBarController?.tabBar.frame.size.height ?? 0
+        let navBarHeight: CGFloat = navigationController?.navigationBar.frame.size.height ?? 0
+
+        print("statusBarHeight: \(statusBarHeight), tabBarHeight: \(tabBarHeight), navBarHeight: \(navBarHeight)")
 
         webView.frame = CGRect(
             x: 0,
-            y: 0,
+            y: statusBarHeight + navBarHeight,
             width: view.frame.width,
-            height: view.frame.height - tabBarHeight
+            height: view.frame.height - statusBarHeight - navBarHeight - tabBarHeight
         )
         view.addSubview(webView)
         
