@@ -336,26 +336,30 @@ class DownloadManager {
     
     fileprivate func saveVideoInfo(_ identifier : String) {
         XCDYouTubeClient.default().getVideoWithIdentifier(identifier, completionHandler: {(video, error) -> Void in
-            if error == nil {
-                let newSong = NSEntityDescription.insertNewObject(forEntityName: "Song", into: self.context)
-                newSong.setValue(identifier, forKey: "identifier")
-                newSong.setValue(video!.title, forKey: "title")
-                newSong.setValue(video!.expirationDate, forKey: "expireDate")
-                newSong.setValue(false, forKey: "isDownloaded")
+            do {
+                if error == nil {
+                    let newSong = NSEntityDescription.insertNewObject(forEntityName: "Song", into: self.context)
+                    newSong.setValue(identifier, forKey: "identifier")
+                    newSong.setValue(video!.title, forKey: "title")
+                    newSong.setValue(video!.expirationDate, forKey: "expireDate")
+                    newSong.setValue(false, forKey: "isDownloaded")
 
-                /*var streamURLs = video!.streamURLs
-                let desiredURL = (streamURLs[22] != nil ? streamURLs[22] : (streamURLs[18] != nil ? streamURLs[18] : streamURLs[36]))! as NSURL
-                newSong.setValue("\(desiredURL)", forKey: "streamURL")*/
+                    /*var streamURLs = video!.streamURLs
+                    let desiredURL = (streamURLs[22] != nil ? streamURLs[22] : (streamURLs[18] != nil ? streamURLs[18] : streamURLs[36]))! as NSURL
+                    newSong.setValue("\(desiredURL)", forKey: "streamURL")*/
 
-                let imgData = try Data(contentsOf: video!.thumbnailURL!)
+                    let imgData = try Data(contentsOf: video!.thumbnailURL!)
 
-                newSong.setValue(imgData, forKey: "thumbnail")
+                    newSong.setValue(imgData, forKey: "thumbnail")
 
-                do{
-                    try self.context.save()
-                }catch _ as NSError{}
+                    do{
+                        try self.context.save()
+                    }catch _ as NSError{}
 
-                NotificationCenter.default.post(name: NSNotification.Name(rawValue: "reloadPlaylistID"), object: nil)
+                    NotificationCenter.default.post(name: NSNotification.Name(rawValue: "reloadPlaylistID"), object: nil)
+                }
+            } catch let e {
+                print("ERROR:saveVideoInfo: \(e)")
             }
         })
     }
