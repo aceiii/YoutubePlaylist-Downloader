@@ -309,7 +309,6 @@
 				22433FD21B47212F00C075FF /* Frameworks */,
 				22433FD31B47212F00C075FF /* Resources */,
 				A3CCF5E1D4A984E44DD05345 /* [CP] Embed Pods Frameworks */,
-				2886A2EF78982119339BC291 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -333,7 +332,7 @@
 				TargetAttributes = {
 					22433FD41B47212F00C075FF = {
 						CreatedOnToolsVersion = 6.3.2;
-						DevelopmentTeam = EJA9W9EPZD;
+						DevelopmentTeam = 6GP7LQPJ52;
 						LastSwiftMigration = 0900;
 						ProvisioningStyle = Automatic;
 					};
@@ -379,28 +378,13 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		2886A2EF78982119339BC291 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Music Player/Pods-Music Player-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 		A3CCF5E1D4A984E44DD05345 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-Music Player/Pods-Music Player-frameworks.sh",
+				"${PODS_ROOT}/Target Support Files/Pods-Music Player/Pods-Music Player-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/SnapKit/SnapKit.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
 				"${BUILT_PRODUCTS_DIR}/XCDYouTubeKit/XCDYouTubeKit.framework",
@@ -413,7 +397,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Music Player/Pods-Music Player-frameworks.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Music Player/Pods-Music Player-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		BFDA1FF2D69EFAC2386FB7D2 /* [CP] Check Pods Manifest.lock */ = {
@@ -604,10 +588,10 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = EJA9W9EPZD;
+				DEVELOPMENT_TEAM = 6GP7LQPJ52;
 				INFOPLIST_FILE = "Music Player/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.samuelechu.Music-Player";
+				PRODUCT_BUNDLE_IDENTIFIER = com.borinouch.MusicPlayer;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -625,10 +609,10 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = EJA9W9EPZD;
+				DEVELOPMENT_TEAM = 6GP7LQPJ52;
 				INFOPLIST_FILE = "Music Player/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.samuelechu.Music-Player";
+				PRODUCT_BUNDLE_IDENTIFIER = com.borinouch.MusicPlayer;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				PROVISIONING_PROFILE_SPECIFIER = "";
